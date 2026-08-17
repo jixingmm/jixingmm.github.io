@@ -1,4 +1,4 @@
-import{r as d,j as b,g as T,l as O,A as U,k as S}from"./client-kw4Ve-ia.js";import{B as k,C as R}from"./index-B9Dg6ZLW.js";function w(e){const a=[],s=e.split(`
+import{r as d,j as b,g as T,l as O,A as U,k as S}from"./client-Dnq_uDIC.js";import{B as k,C as R}from"./index-C8hjoHY7.js";function w(e){const a=[],s=e.split(`
 
 `);for(const o of s)for(const n of o.split(`
 `)){if(!n.startsWith("data:"))continue;const f=n.slice(5).trim();if(f!=="[DONE]")try{const t=JSON.parse(f);t&&t.type&&a.push(t)}catch{}}return a}function m(e){return!!e&&(e.name==="AbortError"||e.code===20)}async function x(e,a,s,o,n,f={}){b(),await k();const t=T();let i;try{i=await fetch(R(e),{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${t}`},body:JSON.stringify(a),signal:f.signal})}catch(c){if(m(c))return;throw c}if(i.status===401)throw O(),new U("登录已失效，请重新登录");if(!i.ok){let c=`HTTP ${i.status}`;try{const l=await i.json();l&&l.detail&&(c=l.detail)}catch{}throw new Error(c)}const p=i.body.getReader(),u=new TextDecoder("utf-8");let r="";try{for(;;){const{done:c,value:l}=await p.read();if(c)break;r+=u.decode(l,{stream:!0});let h=r.lastIndexOf(`
